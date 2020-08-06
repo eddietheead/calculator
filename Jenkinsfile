@@ -40,7 +40,7 @@ pipeline {
         }
         stage("Docker build") {
             steps {
-                sh "docker build -t calculator ianedw123/iane:calculator ."
+                sh "docker build -t ianedw123/iane:calculator ."
             }
         }
     }
