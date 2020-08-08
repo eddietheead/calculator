@@ -43,5 +43,10 @@ pipeline {
                 sh "docker build -t ianedw123/iane:calculator ."
             }
         }
+        stage("Docker Push") {
+            steps {
+                sh "docker push ianedw123/iane:calculator"
+            }
+        }
     }
 }
