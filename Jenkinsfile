@@ -48,10 +48,22 @@ pipeline {
                 sh "docker push ianedw123/iane:calculator"
             }
         }
+        stage("Acceptance test") {
+            steps {
+                sleep 60
+                sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
+            }
+        }
         stage("Deploy to staging") {
             steps {
                 sh "docker run -d --rm -p 8765:8080 --name calculator ianedw123/iane:calculator"
             }
         }
+    }
+    post {
+     always {
+       sh "docker stop calculator"
+     }
+    }
     }
 }
