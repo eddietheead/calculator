@@ -62,7 +62,7 @@ pipeline {
     }
     post {
      always {
-       sh "docker stop calculator"
+       sh "docker stop ianedw123/iane:calculator"
      }
     }
 }
